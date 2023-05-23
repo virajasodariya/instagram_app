@@ -102,25 +102,28 @@ class _AddProfilePhotoState extends State<AddProfilePhoto> {
                         },
                       );
                     },
-                    child: Container(
-                      height: height * 0.15,
-                      width: height * 0.15,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.black,
-                          width: width * 0.007,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(height * 0.2),
+                      child: Container(
+                        height: height * 0.15,
+                        width: height * 0.15,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.black,
+                            width: width * 0.007,
+                          ),
+                          shape: BoxShape.circle,
                         ),
-                        shape: BoxShape.circle,
+                        child: image == null
+                            ? Icon(
+                                Icons.camera_alt_outlined,
+                                size: height * 0.08,
+                              )
+                            : Image.file(
+                                image!,
+                                fit: BoxFit.cover,
+                              ),
                       ),
-                      child: image == null
-                          ? Icon(
-                              Icons.camera_alt_outlined,
-                              size: height * 0.08,
-                            )
-                          : Image.file(
-                              image!,
-                              fit: BoxFit.cover,
-                            ),
                     ),
                   ),
                   SizedBox(height: height * 0.05),

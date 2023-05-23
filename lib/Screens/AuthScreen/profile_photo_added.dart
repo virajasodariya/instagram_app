@@ -42,19 +42,22 @@ class _ProfilePhotoAddedState extends State<ProfilePhotoAdded> {
               child: Column(
                 children: [
                   SizedBox(height: height * 0.1),
-                  Container(
-                    height: height * 0.15,
-                    width: height * 0.15,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.black,
-                        width: width * 0.007,
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(height * 0.2),
+                    child: Container(
+                      height: height * 0.15,
+                      width: height * 0.15,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.black,
+                          width: width * 0.007,
+                        ),
+                        shape: BoxShape.circle,
                       ),
-                      shape: BoxShape.circle,
-                    ),
-                    child: Image.network(
-                      snapshot.data!['Image Url'],
-                      fit: BoxFit.cover,
+                      child: Image.network(
+                        snapshot.data!['Image Url'],
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   SizedBox(height: height * 0.05),
