@@ -15,6 +15,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  CollectionReference users = FirebaseFirestore.instance.collection('User');
   DocumentReference? user;
 
   @override
@@ -33,13 +34,20 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    '${snapshot.data!['Email']}',
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(height * 0.2),
+                child: Container(
+                  height: height * 0.2,
+                  width: height * 0.2,
+                  decoration: BoxDecoration(
+                    color: Colors.redAccent,
+                    shape: BoxShape.circle,
                   ),
-                ],
+                  child: Image.network(
+                    snapshot.data!['Image Url'],
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             );
           } else {

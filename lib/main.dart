@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:instagram_app/Screens/AuthScreen/enter_name_and_password.dart';
 import 'package:instagram_app/Screens/splash_screen.dart';
 
 void main() async {

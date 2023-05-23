@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:instagram_app/Controllers/AuthScreenController/variable.dart';
+import 'package:instagram_app/Screens/AuthScreen/enter_name_and_password.dart';
 import 'package:instagram_app/Screens/HomeScreen/home_screen.dart';
 
 /// crete user code
@@ -26,7 +27,7 @@ void emailVerifySignUp() async {
     });
 
     Get.to(
-      () => HomeScreen(currentUser: credential.user!.uid),
+      () => EnterNameAndPassword(currentUser: credential.user!.uid),
     );
   } on FirebaseAuthException catch (e) {
     log("ERROR := ${e.code}");

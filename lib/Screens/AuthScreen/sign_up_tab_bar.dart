@@ -6,9 +6,8 @@ import 'package:instagram_app/Controllers/AuthScreenController/phone_verify.dart
 import 'package:instagram_app/Controllers/AuthScreenController/variable.dart';
 import 'package:instagram_app/Controllers/height_and_width.dart';
 import 'package:instagram_app/Screens/AuthScreen/Widget/commonTextField.dart';
-import 'package:instagram_app/Screens/AuthScreen/Widget/enter_phone_number.dart';
+import 'package:instagram_app/Screens/AuthScreen/Widget/phone_number_text_field.dart';
 import 'package:instagram_app/Screens/AuthScreen/sign_in_tab_bar.dart';
-import 'package:instagram_app/Screens/Widget/commonBoxShadow.dart';
 import 'package:instagram_app/Screens/Widget/common_elevated_button.dart';
 
 class SignUpTabBar extends StatefulWidget {
@@ -38,7 +37,6 @@ class _SignUpTabBarState extends State<SignUpTabBar>
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
             Container(
@@ -78,13 +76,8 @@ class _SignUpTabBarState extends State<SignUpTabBar>
                 ],
               ),
             ),
-            Container(
-              height: height * 0.08,
-              width: width,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [kGrey11],
-              ),
+            BottomAppBar(
+              shadowColor: Colors.grey,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -139,6 +132,7 @@ class _SignUpWithPhoneNumberState extends State<SignUpWithPhoneNumber> {
         commonElevatedButton(
           () {
             sendOtp();
+            mobileNumber.clear();
           },
           "Next",
         ),

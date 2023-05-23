@@ -30,7 +30,7 @@ class _CommonTextFieldAuthState extends State<CommonTextFieldAuth> {
         fillColor: Colors.grey.shade100,
         hintText: widget.commonHintText,
         suffixIcon: IconButton(
-          onPressed: () {},
+          onPressed: widget.commonOnPressed,
           icon: const Icon(Icons.clear_rounded),
         ),
         enabledBorder: OutlineInputBorder(

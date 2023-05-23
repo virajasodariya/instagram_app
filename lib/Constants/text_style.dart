@@ -8,3 +8,13 @@ TextStyle kGreyShade500W500 = TextStyle(
   fontSize: height * 0.0145,
   fontWeight: FontWeight.w500,
 );
+
+TextStyle k20Bold = TextStyle(
+  fontSize: height * 0.02,
+  fontWeight: FontWeight.bold,
+);
+
+TextStyle k25W500 = TextStyle(
+  fontSize: height * 0.025,
+  fontWeight: FontWeight.w500,
+);

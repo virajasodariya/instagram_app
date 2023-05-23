@@ -1,14 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:instagram_app/Constants/commonBoxShadow.dart';
 import 'package:instagram_app/Controllers/AuthScreenController/email_verify.dart';
 import 'package:instagram_app/Controllers/AuthScreenController/variable.dart';
 import 'package:instagram_app/Controllers/height_and_width.dart';
 import 'package:instagram_app/Screens/AuthScreen/Widget/commonTextField.dart';
-import 'package:instagram_app/Screens/AuthScreen/Widget/enter_phone_number.dart';
-import 'package:instagram_app/Screens/AuthScreen/enter_otp_screen.dart';
+import 'package:instagram_app/Screens/AuthScreen/Widget/phone_number_text_field.dart';
 import 'package:instagram_app/Screens/AuthScreen/sign_up_tab_bar.dart';
-import 'package:instagram_app/Screens/Widget/commonBoxShadow.dart';
 import 'package:instagram_app/Screens/Widget/common_elevated_button.dart';
 import 'package:instagram_app/Screens/Widget/common_text_button.dart';
 
@@ -131,11 +129,7 @@ class _SignInWithPhoneState extends State<SignInWithPhone> {
         SizedBox(height: height * 0.03),
         commonElevatedButton(
           () {
-            Get.to(
-              () => EnterOtpScreen(
-                id: '',
-              ),
-            );
+            mobileNumber.clear();
           },
           "NEXT",
         ),
@@ -180,6 +174,8 @@ class _SignInWithEmailState extends State<SignInWithEmail> {
         commonElevatedButton(
           () {
             emailVerifySignIn();
+            emailController.clear();
+            passwordController.clear();
           },
           "Log in",
         ),

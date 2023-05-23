@@ -1,9 +1,10 @@
+import 'dart:async';
 import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:instagram_app/Controllers/AuthScreenController/variable.dart';
+import 'package:instagram_app/Screens/AuthScreen/enter_name_and_password.dart';
 import 'package:instagram_app/Screens/AuthScreen/enter_otp_screen.dart';
-import 'package:instagram_app/Screens/HomeScreen/home_screen.dart';
 
 /// send otp
 void sendOtp() {
@@ -11,7 +12,7 @@ void sendOtp() {
 
   try {
     auth.verifyPhoneNumber(
-      phoneNumber: '+91 ${mobileNumber.text}',
+      phoneNumber: ' +91 ${mobileNumber.text}',
       verificationCompleted: (phoneAuthCredential) {
         log('VERIFY');
       },
@@ -52,8 +53,9 @@ void verifyOtp(dynamic id) async {
 
     log('uid:= ${userCredential.user!.uid}');
     log('Phone Number := ${userCredential.user!.phoneNumber}');
+
     Get.to(
-      HomeScreen(currentUser: userCredential.user!.uid),
+      () => EnterNameAndPassword(currentUser: userCredential.user!.uid),
     );
   } on FirebaseAuthException catch (e) {
     log('ERROR := ${e.code}');
@@ -62,5 +64,26 @@ void verifyOtp(dynamic id) async {
       "MISTAKE",
       '${e.message}',
     );
+  }
+}
+
+/// otp timer
+
+class OtpTimer extends GetxController {
+  int start = 30;
+  Timer? timer;
+
+  void startTimer() {
+    const oneSec = Duration(seconds: 1);
+
+    timer = Timer.periodic(oneSec, (timer) {
+      if (start == 0) {
+        timer.cancel();
+        update();
+      } else {
+        start--;
+        update();
+      }
+    });
   }
 }
