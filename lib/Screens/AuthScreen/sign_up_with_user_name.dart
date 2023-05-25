@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:instagram_app/Constants/text_style.dart';
 import 'package:instagram_app/Controllers/AuthScreenController/variable.dart';
-import 'package:instagram_app/Controllers/height_and_width.dart';
 import 'package:instagram_app/Screens/AuthScreen/add_profile_photo.dart';
 import 'package:instagram_app/Screens/Widget/common_elevated_button.dart';
+import 'package:sizer/sizer.dart';
 
 class SignUpWithUserName extends StatefulWidget {
-  const SignUpWithUserName({Key? key, required this.currentUser})
-      : super(key: key);
+  const SignUpWithUserName({
+    Key? key,
+    required this.currentUser,
+  }) : super(key: key);
   final String currentUser;
 
   @override
@@ -39,21 +41,21 @@ class _SignUpWithUserNameState extends State<SignUpWithUserName> {
             return Center(
               child: Column(
                 children: [
-                  SizedBox(height: height * 0.4),
+                  SizedBox(height: 275.sp),
                   Text(
                     "Sign up as",
-                    style: k25W500,
+                    style: FontTextStyle.kBlack20W500,
                   ),
                   Text(
                     "${userNameController.text}?",
-                    style: k20Bold,
+                    style: FontTextStyle.kBlack16W500,
                   ),
-                  SizedBox(height: height * 0.02),
+                  SizedBox(height: 10.sp),
                   Text(
                     "You can always change your username later.",
-                    style: kGreyShade500W500,
+                    style: FontTextStyle.kGreyShade50012W500,
                   ),
-                  SizedBox(height: height * 0.05),
+                  SizedBox(height: 30.sp),
                   commonElevatedButton(
                     () {
                       Get.to(
@@ -62,13 +64,13 @@ class _SignUpWithUserNameState extends State<SignUpWithUserName> {
                     },
                     "Sign up",
                   ),
-                  SizedBox(height: height * 0.26),
+                  SizedBox(height: 150.sp),
                   Text(
                     textAlign: TextAlign.center,
                     "By clicking Next,you agree to our Terms.Learn how we collect,\n"
                     "use and share your data in our Data Policy and how we use\n"
                     "cookies and similar technology in our Cookies Policy.",
-                    style: kGreyShade500W500,
+                    style: FontTextStyle.kGreyShade50012W500,
                   ),
                 ],
               ),

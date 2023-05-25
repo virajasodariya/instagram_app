@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_app/Controllers/height_and_width.dart';
+import 'package:sizer/sizer.dart';
 
-/// auth screen inform
+class FontTextStyle {
+  static TextStyle kGreyShade50012W500 = TextStyle(
+    color: Colors.grey.shade500,
+    fontSize: 9.5.sp,
+    fontWeight: FontWeight.w500,
+  );
 
-TextStyle kGreyShade500W500 = TextStyle(
-  color: Colors.grey.shade500,
-  fontSize: height * 0.0145,
-  fontWeight: FontWeight.w500,
-);
+  static TextStyle kBlack12W500 = TextStyle(
+    color: Colors.black,
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w500,
+  );
 
-TextStyle k20Bold = TextStyle(
-  fontSize: height * 0.02,
-  fontWeight: FontWeight.bold,
-);
+  static TextStyle kBlack16W500 = TextStyle(
+    color: Colors.black,
+    fontSize: 16.5.sp,
+    fontWeight: FontWeight.w500,
+  );
 
-TextStyle k25W500 = TextStyle(
-  fontSize: height * 0.025,
-  fontWeight: FontWeight.w500,
-);
+  static TextStyle kBlack20W500 = TextStyle(
+    color: Colors.black,
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w500,
+  );
+}

@@ -2,10 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:instagram_app/Constants/text_style.dart';
-import 'package:instagram_app/Controllers/height_and_width.dart';
 import 'package:instagram_app/Screens/HomeScreen/home_screen.dart';
 import 'package:instagram_app/Screens/Widget/common_elevated_button.dart';
 import 'package:instagram_app/Screens/Widget/common_text_button.dart';
+import 'package:sizer/sizer.dart';
 
 class ProfilePhotoAdded extends StatefulWidget {
   const ProfilePhotoAdded({
@@ -41,16 +41,16 @@ class _ProfilePhotoAddedState extends State<ProfilePhotoAdded> {
             return Center(
               child: Column(
                 children: [
-                  SizedBox(height: height * 0.1),
+                  SizedBox(height: 70.sp),
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(height * 0.2),
+                    borderRadius: BorderRadius.circular(100.sp),
                     child: Container(
-                      height: height * 0.15,
-                      width: height * 0.15,
+                      height: 100.sp,
+                      width: 100.sp,
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: Colors.black,
-                          width: width * 0.007,
+                          width: 2.sp,
                         ),
                         shape: BoxShape.circle,
                       ),
@@ -60,22 +60,22 @@ class _ProfilePhotoAddedState extends State<ProfilePhotoAdded> {
                       ),
                     ),
                   ),
-                  SizedBox(height: height * 0.05),
+                  SizedBox(height: 30.sp),
                   Text(
                     "Profile photo added",
-                    style: k25W500,
+                    style: FontTextStyle.kBlack20W500,
                   ),
                   commonTextButton(
                     () {},
                     "Change photo",
                   ),
-                  SizedBox(height: height * 0.05),
+                  SizedBox(height: 30.sp),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Text(
                         "Also share this photo as a post",
-                        style: k20Bold,
+                        style: FontTextStyle.kBlack12W500,
                       ),
                       Switch(
                           value: switchValue,
@@ -86,13 +86,13 @@ class _ProfilePhotoAddedState extends State<ProfilePhotoAdded> {
                           }),
                     ],
                   ),
-                  SizedBox(height: height * 0.03),
+                  SizedBox(height: 15.sp),
                   Text(
                     "Make this photo your first post so people can like and\n"
                     "comment on it.",
-                    style: kGreyShade500W500,
+                    style: FontTextStyle.kGreyShade50012W500,
                   ),
-                  SizedBox(height: height * 0.03),
+                  SizedBox(height: 15.sp),
                   commonElevatedButton(
                     () {
                       Get.to(

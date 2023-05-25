@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:instagram_app/Controllers/height_and_width.dart';
 import 'package:instagram_app/Screens/AuthScreen/ask_user_sign_up_or_sign_in.dart';
+import 'package:sizer/sizer.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -34,9 +34,9 @@ class _SplashScreenState extends State<SplashScreen> {
           "assets/images/splash_screen_pic.png",
         ),
         Positioned(
-          bottom: height * 0.02,
-          left: width * 0.25,
-          right: width * 0.25,
+          bottom: 40.sp,
+          left: 60.sp,
+          right: 60.sp,
           child: Image.asset(
             "assets/images/Instagram-name-logo.png",
           ),

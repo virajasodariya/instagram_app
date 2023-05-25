@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:instagram_app/Constants/text_style.dart';
 import 'package:instagram_app/Controllers/AuthScreenController/variable.dart';
-import 'package:instagram_app/Controllers/height_and_width.dart';
 import 'package:instagram_app/Screens/AuthScreen/Widget/commonTextField.dart';
 import 'package:instagram_app/Screens/AuthScreen/add_your_birthday.dart';
 import 'package:instagram_app/Screens/Widget/common_elevated_button.dart';
 import 'package:instagram_app/Screens/Widget/common_text_button.dart';
+import 'package:sizer/sizer.dart';
 
 class EnterNameAndPassword extends StatefulWidget {
   const EnterNameAndPassword({
@@ -50,12 +50,12 @@ class _EnterNameAndPasswordState extends State<EnterNameAndPassword> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: height * 0.15),
+                  SizedBox(height: 100.sp),
                   Text(
                     "NAME AND PASSWORD",
-                    style: k20Bold,
+                    style: FontTextStyle.kBlack16W500,
                   ),
-                  SizedBox(height: height * 0.05),
+                  SizedBox(height: 20.sp),
                   CommonTextFieldAuth(
                     commonController: nameController,
                     commonHintText: "Full name",
@@ -64,7 +64,7 @@ class _EnterNameAndPasswordState extends State<EnterNameAndPassword> {
                       nameController.clear();
                     },
                   ),
-                  SizedBox(height: height * 0.02),
+                  SizedBox(height: 10.sp),
                   CommonTextFieldAuth(
                     commonController: passwordController,
                     commonHintText: "Password",
@@ -73,9 +73,9 @@ class _EnterNameAndPasswordState extends State<EnterNameAndPassword> {
                       passwordController.clear();
                     },
                   ),
-                  SizedBox(height: height * 0.02),
+                  SizedBox(height: 15.sp),
                   Padding(
-                    padding: EdgeInsets.only(left: width * 0.04),
+                    padding: EdgeInsets.only(left: 15.sp),
                     child: Row(
                       children: [
                         Checkbox(
@@ -88,23 +88,18 @@ class _EnterNameAndPasswordState extends State<EnterNameAndPassword> {
                         ),
                         Text(
                           "Remember password ",
-                          style: TextStyle(
-                            fontSize: height * 0.016,
-                            color: Colors.grey,
-                            fontWeight: FontWeight.w500,
-                          ),
+                          style: FontTextStyle.kGreyShade50012W500,
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: height * 0.02),
+                  SizedBox(height: 15.sp),
                   commonElevatedButton(
                     () {
                       contactsPermissionShowDialog(context);
                     },
                     "Continue and sync contacts",
                   ),
-                  SizedBox(height: height * 0.015),
                   commonTextButton(
                     () {
                       users.doc(widget.currentUser).update({
@@ -121,14 +116,14 @@ class _EnterNameAndPasswordState extends State<EnterNameAndPassword> {
                     },
                     "Continue without syncing contacts",
                   ),
-                  SizedBox(height: height * 0.25),
+                  SizedBox(height: 175.sp),
                   Text(
                     textAlign: TextAlign.center,
                     "Your contacts will be periodically synced and stored on\n"
                     "Instagram servers to help you and others find friends, and to\n"
                     "help us provide a better service. To remove contacts, go to\n"
                     "Settings and disconnect.",
-                    style: kGreyShade500W500,
+                    style: FontTextStyle.kGreyShade50012W500,
                   ),
                 ],
               ),
@@ -149,21 +144,21 @@ class _EnterNameAndPasswordState extends State<EnterNameAndPassword> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SizedBox(height: height * 0.02),
+              SizedBox(height: 15.sp),
               Icon(
                 Icons.contacts_outlined,
                 color: Colors.blue,
-                size: height * 0.03,
+                size: 30.sp,
               ),
-              SizedBox(height: height * 0.02),
+              SizedBox(height: 15.sp),
               Text(
                 textAlign: TextAlign.center,
                 "Allow Instagram to access your\n"
                 "contacts?",
-                style: k20Bold,
+                style: FontTextStyle.kBlack16W500,
               ),
-              SizedBox(height: height * 0.02),
-              Divider(thickness: height * 0.002),
+              SizedBox(height: 15.sp),
+              Divider(thickness: 1.sp),
               commonTextButton(
                 () {
                   users.doc(widget.currentUser).update({
@@ -176,7 +171,7 @@ class _EnterNameAndPasswordState extends State<EnterNameAndPassword> {
                 },
                 "Allow",
               ),
-              Divider(thickness: height * 0.002),
+              Divider(thickness: 1.sp),
               commonTextButton(
                 () {
                   users.doc(widget.currentUser).update({

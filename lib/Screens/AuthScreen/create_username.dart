@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:instagram_app/Constants/text_style.dart';
 import 'package:instagram_app/Controllers/AuthScreenController/variable.dart';
-import 'package:instagram_app/Controllers/height_and_width.dart';
 import 'package:instagram_app/Screens/AuthScreen/Widget/commonTextField.dart';
 import 'package:instagram_app/Screens/AuthScreen/sign_up_with_user_name.dart';
 import 'package:instagram_app/Screens/Widget/common_elevated_button.dart';
+import 'package:sizer/sizer.dart';
 
 class CreateUserName extends StatefulWidget {
   const CreateUserName({
@@ -40,19 +40,19 @@ class _CreateUserNameState extends State<CreateUserName> {
             return Center(
               child: Column(
                 children: [
-                  SizedBox(height: height * 0.2),
+                  SizedBox(height: 150.sp),
                   Text(
                     "CREATE USERNAME",
-                    style: k20Bold,
+                    style: FontTextStyle.kBlack16W500,
                   ),
-                  SizedBox(height: height * 0.02),
+                  SizedBox(height: 16.sp),
                   Text(
                     textAlign: TextAlign.center,
                     "Add a username or use our suggestion. You can\n"
                     "change this at any time.",
-                    style: kGreyShade500W500,
+                    style: FontTextStyle.kGreyShade50012W500,
                   ),
-                  SizedBox(height: height * 0.05),
+                  SizedBox(height: 30.sp),
                   CommonTextFieldAuth(
                     commonController: userNameController,
                     commonHintText: "Enter your user name",
@@ -61,7 +61,7 @@ class _CreateUserNameState extends State<CreateUserName> {
                       userNameController.clear();
                     },
                   ),
-                  SizedBox(height: height * 0.05),
+                  SizedBox(height: 30.sp),
                   commonElevatedButton(
                     () {
                       users.doc(widget.currentUser).update({

@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:instagram_app/Constants/text_style.dart';
-import 'package:instagram_app/Controllers/height_and_width.dart';
 import 'package:instagram_app/Screens/AuthScreen/profile_photo_added.dart';
 import 'package:instagram_app/Screens/Widget/common_elevated_button.dart';
 import 'package:instagram_app/Screens/Widget/common_text_button.dart';
+import 'package:sizer/sizer.dart';
 
 class AddProfilePhoto extends StatefulWidget {
   const AddProfilePhoto({
@@ -49,7 +49,7 @@ class _AddProfilePhotoState extends State<AddProfilePhoto> {
             return Center(
               child: Column(
                 children: [
-                  SizedBox(height: height * 0.1),
+                  SizedBox(height: 75.sp),
                   GestureDetector(
                     onTap: () {
                       setState(() {});
@@ -58,21 +58,21 @@ class _AddProfilePhotoState extends State<AddProfilePhoto> {
                         builder: (context) {
                           return AlertDialog(
                             actions: [
-                              SizedBox(height: height * 0.025),
+                              SizedBox(height: 10.sp),
                               Center(
                                 child: Text(
                                   "Change profile photo",
-                                  style: k25W500,
+                                  style: FontTextStyle.kBlack16W500,
                                 ),
                               ),
-                              SizedBox(height: height * 0.025),
-                              Divider(thickness: height * 0.002),
-                              SizedBox(height: height * 0.025),
+                              SizedBox(height: 10.sp),
+                              Divider(thickness: 2.sp),
+                              SizedBox(height: 10.sp),
                               commonTextButton(
                                 () {},
                                 "Import from Facebook",
                               ),
-                              SizedBox(height: height * 0.025),
+                              SizedBox(height: 10.sp),
                               commonTextButton(
                                 () async {
                                   XFile? file = await picker.pickImage(
@@ -84,7 +84,7 @@ class _AddProfilePhotoState extends State<AddProfilePhoto> {
                                 },
                                 "Take photo",
                               ),
-                              SizedBox(height: height * 0.025),
+                              SizedBox(height: 10.sp),
                               commonTextButton(
                                 () async {
                                   XFile? file = await picker.pickImage(
@@ -96,28 +96,28 @@ class _AddProfilePhotoState extends State<AddProfilePhoto> {
                                 },
                                 "Choose from library",
                               ),
-                              SizedBox(height: height * 0.025),
+                              SizedBox(height: 10.sp),
                             ],
                           );
                         },
                       );
                     },
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(height * 0.2),
+                      borderRadius: BorderRadius.circular(100.sp),
                       child: Container(
-                        height: height * 0.15,
-                        width: height * 0.15,
+                        height: 100.sp,
+                        width: 100.sp,
                         decoration: BoxDecoration(
                           border: Border.all(
                             color: Colors.black,
-                            width: width * 0.007,
+                            width: 2.sp,
                           ),
                           shape: BoxShape.circle,
                         ),
                         child: image == null
                             ? Icon(
                                 Icons.camera_alt_outlined,
-                                size: height * 0.08,
+                                size: 60.sp,
                               )
                             : Image.file(
                                 image!,
@@ -126,19 +126,19 @@ class _AddProfilePhotoState extends State<AddProfilePhoto> {
                       ),
                     ),
                   ),
-                  SizedBox(height: height * 0.05),
+                  SizedBox(height: 30.sp),
                   Text(
                     "Add profile photo",
-                    style: k25W500,
+                    style: FontTextStyle.kBlack20W500,
                   ),
-                  SizedBox(height: height * 0.05),
+                  SizedBox(height: 30.sp),
                   Text(
                     textAlign: TextAlign.center,
                     "Add a profile photo so your friends know\n"
                     "it's you.",
-                    style: kGreyShade500W500,
+                    style: FontTextStyle.kGreyShade50012W500,
                   ),
-                  SizedBox(height: height * 0.05),
+                  SizedBox(height: 30.sp),
                   commonElevatedButton(
                     () async {
                       setState(() {

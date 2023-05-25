@@ -4,11 +4,12 @@ import 'package:instagram_app/Constants/text_style.dart';
 import 'package:instagram_app/Controllers/AuthScreenController/email_verify.dart';
 import 'package:instagram_app/Controllers/AuthScreenController/phone_verify.dart';
 import 'package:instagram_app/Controllers/AuthScreenController/variable.dart';
-import 'package:instagram_app/Controllers/height_and_width.dart';
 import 'package:instagram_app/Screens/AuthScreen/Widget/commonTextField.dart';
 import 'package:instagram_app/Screens/AuthScreen/Widget/phone_number_text_field.dart';
 import 'package:instagram_app/Screens/AuthScreen/sign_in_tab_bar.dart';
 import 'package:instagram_app/Screens/Widget/common_elevated_button.dart';
+import 'package:instagram_app/Screens/Widget/common_text_button.dart';
+import 'package:sizer/sizer.dart';
 
 class SignUpTabBar extends StatefulWidget {
   const SignUpTabBar({Key? key}) : super(key: key);
@@ -39,25 +40,26 @@ class _SignUpTabBarState extends State<SignUpTabBar>
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(height: 50.sp),
             Container(
-              height: height * 0.4,
-              width: width * 0.4,
+              height: 120.sp,
+              width: 120.sp,
               decoration: BoxDecoration(
                 border: Border.all(
                   color: Colors.black,
-                  width: width * 0.004,
+                  width: 2.sp,
                 ),
                 shape: BoxShape.circle,
               ),
               child: Icon(
                 Icons.person_outline_outlined,
-                size: height * 0.12,
+                size: 80.sp,
               ),
             ),
+            SizedBox(height: 20.sp),
             TabBar(
               controller: tabController,
               indicatorSize: TabBarIndicatorSize.label,
-              physics: const BouncingScrollPhysics(),
               labelColor: Colors.grey,
               indicatorColor: Colors.black,
               isScrollable: true,
@@ -67,7 +69,7 @@ class _SignUpTabBarState extends State<SignUpTabBar>
               ),
             ),
             SizedBox(
-              height: height * 0.49844,
+              height: 378.sp,
               child: TabBarView(
                 controller: tabController,
                 children: const [
@@ -87,14 +89,11 @@ class _SignUpTabBarState extends State<SignUpTabBar>
                       color: Colors.grey.shade600,
                     ),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      Get.to(
-                        () => const SignInTabBar(),
-                      );
-                    },
-                    child: const Text("Log in."),
-                  ),
+                  commonTextButton(() {
+                    Get.to(
+                      () => const SignInTabBar(),
+                    );
+                  }, "Log in."),
                 ],
               ),
             ),
@@ -119,16 +118,16 @@ class _SignUpWithPhoneNumberState extends State<SignUpWithPhoneNumber> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: height * 0.05),
+        SizedBox(height: 20.sp),
         phoneNumberWithCountryCode(),
-        SizedBox(height: height * 0.05),
+        SizedBox(height: 20.sp),
         Text(
           textAlign: TextAlign.center,
-          "Yoy may receive SMS notification from us for security and"
+          "You may receive SMS notification from us for security and"
           "\nlogin purposes.",
-          style: kGreyShade500W500,
+          style: FontTextStyle.kGreyShade50012W500,
         ),
-        SizedBox(height: height * 0.1),
+        SizedBox(height: 20.sp),
         commonElevatedButton(
           () {
             sendOtp();
@@ -155,7 +154,7 @@ class _SignUpWithEmailState extends State<SignUpWithEmail> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: height * 0.05),
+        SizedBox(height: 20.sp),
         CommonTextFieldAuth(
           commonKeyboardType: TextInputType.emailAddress,
           commonController: emailController,
@@ -164,7 +163,7 @@ class _SignUpWithEmailState extends State<SignUpWithEmail> {
             emailController.clear();
           },
         ),
-        SizedBox(height: height * 0.02),
+        SizedBox(height: 10.sp),
         CommonTextFieldAuth(
           commonKeyboardType: TextInputType.number,
           commonController: passwordController,
@@ -173,7 +172,7 @@ class _SignUpWithEmailState extends State<SignUpWithEmail> {
             passwordController.clear();
           },
         ),
-        SizedBox(height: height * 0.05),
+        SizedBox(height: 20.sp),
         commonElevatedButton(
           () {
             emailVerifySignUp();

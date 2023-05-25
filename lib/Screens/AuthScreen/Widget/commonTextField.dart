@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_app/Controllers/height_and_width.dart';
+import 'package:sizer/sizer.dart';
 
 class CommonTextFieldAuth extends StatefulWidget {
   const CommonTextFieldAuth({
@@ -25,7 +25,7 @@ class _CommonTextFieldAuthState extends State<CommonTextFieldAuth> {
       keyboardType: widget.commonKeyboardType,
       controller: widget.commonController,
       decoration: InputDecoration(
-        constraints: BoxConstraints(maxWidth: width * 0.85),
+        constraints: BoxConstraints(maxWidth: 250.sp),
         filled: true,
         fillColor: Colors.grey.shade100,
         hintText: widget.commonHintText,
@@ -34,11 +34,11 @@ class _CommonTextFieldAuthState extends State<CommonTextFieldAuth> {
           icon: const Icon(Icons.clear_rounded),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(5.sp),
           borderSide: BorderSide(color: Colors.grey.shade500),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(5.sp),
           borderSide: BorderSide(color: Colors.grey.shade500),
         ),
       ),

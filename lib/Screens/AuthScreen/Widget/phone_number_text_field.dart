@@ -1,7 +1,7 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_app/Controllers/AuthScreenController/variable.dart';
-import 'package:instagram_app/Controllers/height_and_width.dart';
+import 'package:sizer/sizer.dart';
 
 TextField phoneNumberWithCountryCode() {
   return TextField(
@@ -27,15 +27,15 @@ TextField phoneNumberWithCountryCode() {
         icon: const Icon(Icons.cancel_outlined),
       ),
       hintText: "Phone",
-      constraints: BoxConstraints(maxWidth: width * 0.85),
+      constraints: BoxConstraints(maxWidth: 250.sp),
       filled: true,
       fillColor: Colors.grey.shade100,
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(5),
+        borderRadius: BorderRadius.circular(5.sp),
         borderSide: BorderSide(color: Colors.grey.shade500),
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(5),
+        borderRadius: BorderRadius.circular(5.sp),
         borderSide: BorderSide(color: Colors.grey.shade500),
       ),
     ),

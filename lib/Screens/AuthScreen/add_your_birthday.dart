@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_app/Constants/text_style.dart';
-import 'package:instagram_app/Controllers/height_and_width.dart';
 import 'package:instagram_app/Screens/AuthScreen/create_username.dart';
 import 'package:instagram_app/Screens/Widget/common_elevated_button.dart';
 import 'package:instagram_app/Screens/Widget/common_text_button.dart';
 import 'package:get/get.dart';
+import 'package:sizer/sizer.dart';
 
 class AddYourBirthday extends StatefulWidget {
   const AddYourBirthday({
@@ -43,18 +43,15 @@ class _AddYourBirthdayState extends State<AddYourBirthday> {
             return Center(
               child: Column(
                 children: [
-                  SizedBox(height: height * 0.2),
+                  SizedBox(height: 120.sp),
                   Text(
                     "Add your birthday",
-                    style: k25W500,
+                    style: FontTextStyle.kBlack20W500,
                   ),
-                  SizedBox(height: height * 0.03),
+                  SizedBox(height: 30.sp),
                   Text(
                     "This won't be part of your public profile.",
-                    style: TextStyle(
-                      fontSize: height * 0.018,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style: FontTextStyle.kBlack12W500,
                   ),
                   commonTextButton(
                     () {},
@@ -83,9 +80,9 @@ class _AddYourBirthdayState extends State<AddYourBirthday> {
                     selectedDate != null
                         ? 'Your Birth Date: ${selectedDate.toString().substring(0, 10)}'
                         : 'No Date Selected',
-                    style: k20Bold,
+                    style: FontTextStyle.kBlack12W500,
                   ),
-                  SizedBox(height: height * 0.3),
+                  SizedBox(height: 200.sp),
                   commonElevatedButton(
                     () {
                       users.doc(widget.currentUser).update({
